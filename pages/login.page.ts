@@ -1,0 +1,20 @@
+import { expect, type Page } from '@playwright/test';
+
+export class LoginPage {
+  constructor(private readonly page: Page) {}
+
+  async goto() {
+    await this.page.goto('/');
+  }
+
+  async login(username = 'admin', password = 'password123') {
+    await this.page.getByLabel('Username').fill(username);
+    await this.page.getByLabel('Password').fill(password);
+    await this.page.getByTestId('login-btn').click();
+    await this.page.getByTestId('dashboard-page').waitFor({ state: 'visible', timeout: 5000 });
+  }
+
+  async assertError(message: string) {
+    await expect(this.page.getByTestId('login-error')).toContainText(message);
+  }
+}

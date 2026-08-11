@@ -1,0 +1,29 @@
+{
+  "name": "insurance-underwriter-automation",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:smoke": "playwright test tests/smoke.spec.ts",
+    "test:e2e:trace": "playwright test --trace on",
+    "test:report": "playwright show-report reports/html-report",
+    "lint": "eslint --ext .ts tests pages components fixtures locators helpers utils config data models interfaces ai knowledge-graph --max-warnings=0",
+    "playwright:install": "playwright install --with-deps chromium firefox webkit",
+    "automation:doctor": "node -e \"console.log('AI automation framework ready. Install Playwright browsers through npm run playwright:install')\""
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.0.0",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^22.0.0",
+    "dotenv": "^16.5.0",
+    "eslint": "^9.0.0",
+    "playwright": "^1.55.0",
+    "prettier": "^3.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.0",
+    "winston": "^3.17.0"
+  }
+}
+
